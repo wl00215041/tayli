@@ -25,7 +25,6 @@ export const handlers: any = [
         }),
       )
     }
-
     // If authenticated, return a mocked user details
     return res(
       ctx.status(200),

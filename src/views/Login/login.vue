@@ -2,32 +2,28 @@
   <div class="w-screen h-screen bg-f3 relative">
     <Header></Header>
     <div class="py-12 px-14 bg-[] absolute inset-0">
-      <h1 class="text-white">Login</h1>
       <form>
-        <TextField title="2423" :placeholder="randomText">
+        <TextField title="slot置換測試" :placeholder="randomText">
           <template #icon>
-            <div class="absolute left-2 top-0 bottom-0 h-4 w-4 rounded-full bg-red-300 inline-block"></div>
+            <div
+              class="absolute left-2 top-0 bottom-0 h-4 w-4 rounded-full bg-red-300 inline-block"
+            ></div>
           </template>
         </TextField>
         <TextField placeholder="Password"></TextField>
-        <!-- <div class=" relative">
-          <div class="absolute left-2 top-0 bottom-0 h-4 w-4 rounded-full bg-yellow-300 inline-block"></div>
-          <input class="bg-c10-card border focus:border-none focus:outline-none pl-8 border-[#515a57]" type="text" placeholder="Username">
-        </div> -->
-        <!-- <div class="relative">
-          <div class="absolute left-2 top-0 bottom-0 h-4 w-4 rounded-full bg-yellow-300 inline-block"></div>
-          <input class="bg-c10-card border focus:border-none focus:outline-none pl-8 border-[#515a57]" type="text" placeholder="Password">
-        </div> -->
+        <v-btn block class="mb-8" color="white" size="large" variant="tonal" @click="userLogin">
+          Log In
+        </v-btn>
       </form>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 import { login } from '../../services/user'
 import { useRouter } from 'vue-router'
 import TextField from '../../components/TextField.vue'
-import Header from './Header.vue';
+import Header from './Header.vue'
 const username = ref('')
 const password = ref('')
 const router = useRouter()
@@ -46,7 +42,6 @@ const randomText = ref('')
 setInterval(() => {
   randomText.value = Math.random().toString(36).substring(7)
 }, 1000)
-
 </script>
 <!-- <style scoped lang="scss">
 .app {

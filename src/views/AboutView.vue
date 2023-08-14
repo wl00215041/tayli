@@ -1,7 +1,11 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    {{ user.username  }}
+    
+    <v-chip class="ma-2" color="primary">
+      username : {{ user.username  }}
+    </v-chip>
+    
   </div>
 </template>
 
