@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vueuse/core": "^10.4.0",
     "axios": "^1.4.0",
     "msw": "^1.2.3",
     "pinia": "^2.1.4",
