@@ -10,37 +10,34 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { onClickOutside, useDraggable } from '@vueuse/core';
 import { ref } from 'vue';
 
-export default {
-  setup() {
-    const dialogRef = ref()
-    const el = ref<HTMLElement | null>(null)
+const dialogRef = ref()
+const el = ref<HTMLElement | null>(null)
 
-    // `style` will be a helper computed for `left: ?px; top: ?px;`
-    const { x, y, style } = useDraggable(el, {
-      initialValue: { x: 40, y: 40 },
-    })
-    onClickOutside(el, () => {
-      visible.value = false
-    });
+// `style` will be a helper computed for `left: ?px; top: ?px;`
+const { x, y, style } = useDraggable(el, {
+  initialValue: { x: 40, y: 40 },
+})
+onClickOutside(el, () => {
+  visible.value = false
+});
 
-    const close = () => {
-      visible.value = false
-    }
-
-    const visible = ref(true)
-    return {
-      close,
-      visible,
-      dialogRef,
-      style,
-      el
-    }
-  }
+const close = () => {
+  visible.value = false
 }
+
+const visible = ref(true)
+defineExpose({
+  close,
+  visible,
+  dialogRef,
+  style,
+  el
+})
+
 
 
 
@@ -68,18 +65,21 @@ export default {
     height: 500px;
     background-color: #9d7bf8;
     z-index: 2;
+
     .dialog-header {
       background-color: grey;
       height: 30px;
       display: flex;
       justify-content: flex-end;
       margin-right: 18px;
-      
+
     }
+
     .close {
       cursor: pointer;
       padding: 12px;
       position: relative;
+
       &::before {
         content: '';
         position: absolute;
@@ -90,6 +90,7 @@ export default {
         background-color: black;
         transform: rotate(45deg);
       }
+
       &::after {
         content: '';
         display: inline-block;
@@ -102,5 +103,4 @@ export default {
       }
     }
   }
-}
-</style>
+}</style>
